@@ -46,7 +46,10 @@ const categories: {
   },
 ]
 
+import { usePageTitle } from '../hooks/usePageTitle'
+
 export function DiscoverPage() {
+  usePageTitle('Discover')
   const [category, setCategory] = useState<DiscoverCategory>('movies')
   const [searchInput, setSearchInput] = useState('')
   const [activeQuery, setActiveQuery] = useState('')

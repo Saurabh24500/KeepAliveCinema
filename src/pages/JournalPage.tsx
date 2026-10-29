@@ -28,7 +28,10 @@ function JournalSkeleton() {
   )
 }
 
+import { usePageTitle } from '../hooks/usePageTitle'
+
 export function JournalPage() {
+  usePageTitle('Journal')
   const { entries, loading, error, reload } = useMyJournal()
   const { removeFromJournal, saving } = useJournalActions()
   const [filter, setFilter] = useState<WatchlistStatus | 'all'>('all')

@@ -37,7 +37,10 @@ const plannedFeatures = [
   },
 ]
 
+import { usePageTitle } from '../hooks/usePageTitle'
+
 export function HomePage() {
+  usePageTitle('Home')
   const featured = sampleRows[0].items[0]
 
   return (

@@ -8,7 +8,10 @@ import { Skeleton } from '../components/ui/Skeleton'
 import { Users } from 'lucide-react'
 import type { Post } from '../features/community/community-types'
 
+import { usePageTitle } from '../hooks/usePageTitle'
+
 export function CommunityPage() {
+  usePageTitle('Community')
   const { user } = useAuth()
   const { post, loadPosts, toggleLike, loading, error } = useCommunity()
   const [posts, setPosts] = useState<Post[]>([])
