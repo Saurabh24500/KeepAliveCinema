@@ -1,3 +1,18 @@
+-- Ensure media_items exists
+create table if not exists public.media_items (
+  id uuid primary key default gen_random_uuid(),
+  tmdb_id integer not null,
+  media_type text not null,
+  title text not null,
+  overview text,
+  poster_path text,
+  backdrop_path text,
+  release_date date,
+  original_language text,
+  created_at timestamptz not null default now(),
+  unique (tmdb_id, media_type)
+);
+
 -- Posts
 create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
