@@ -7,15 +7,18 @@ import { AuthConfirmPage } from '../pages/AuthConfirmPage'
 import { CommunityPage } from '../pages/CommunityPage'
 import { DiscoverPage } from '../pages/DiscoverPage'
 import { ForgotPasswordPage } from '../pages/ForgotPasswordPage'
+import { HelpPage } from '../pages/HelpPage'
 import { HomePage } from '../pages/HomePage'
 import { JournalPage } from '../pages/JournalPage'
 import { MediaDetailPage } from '../pages/MediaDetailPage'
 import { NotFoundPage } from '../pages/NotFoundPage'
 import { OnboardingPage } from '../pages/OnboardingPage'
+import { PrivacyPage } from '../pages/PrivacyPage'
 import { ProfilePage } from '../pages/ProfilePage'
 import { ResetPasswordPage } from '../pages/ResetPasswordPage'
 import { SignInPage } from '../pages/SignInPage'
 import { SignUpPage } from '../pages/SignUpPage'
+import { TermsPage } from '../pages/TermsPage'
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +51,9 @@ export const router = createBrowserRouter([
       { path: 'auth/confirm', element: <AuthConfirmPage /> },
       { path: 'confirm', element: <AuthConfirmPage /> },
       { path: 'about', element: <AboutPage /> },
+      { path: 'privacy', element: <PrivacyPage /> },
+      { path: 'terms', element: <TermsPage /> },
+      { path: 'help', element: <HelpPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

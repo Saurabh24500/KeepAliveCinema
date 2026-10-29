@@ -74,6 +74,30 @@ export function Footer() {
                 About
               </Link>
             </li>
+            <li>
+              <Link
+                to="/privacy"
+                className="text-cinema-muted transition-colors hover:text-cinema-text"
+              >
+                Privacy
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/terms"
+                className="text-cinema-muted transition-colors hover:text-cinema-text"
+              >
+                Terms
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/help"
+                className="text-cinema-muted transition-colors hover:text-cinema-text"
+              >
+                Help
+              </Link>
+            </li>
             <li className="text-cinema-muted/70">Built with React + Tailwind</li>
             <li className="text-cinema-muted/70">
               Supabase auth + profiles · TMDB discovery
