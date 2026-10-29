@@ -3,6 +3,7 @@ import { AppShell } from '../components/layout/AppShell'
 import { RequireAuth } from '../features/auth/RequireAuth'
 import { AboutPage } from '../pages/AboutPage'
 import { AccountPage } from '../pages/AccountPage'
+import { AuthConfirmPage } from '../pages/AuthConfirmPage'
 import { CommunityPage } from '../pages/CommunityPage'
 import { DiscoverPage } from '../pages/DiscoverPage'
 import { ForgotPasswordPage } from '../pages/ForgotPasswordPage'
@@ -44,6 +45,8 @@ export const router = createBrowserRouter([
       { path: 'signup', element: <SignUpPage /> },
       { path: 'forgot-password', element: <ForgotPasswordPage /> },
       { path: 'reset-password', element: <ResetPasswordPage /> },
+      { path: 'auth/confirm', element: <AuthConfirmPage /> },
+      { path: 'confirm', element: <AuthConfirmPage /> },
       { path: 'about', element: <AboutPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
