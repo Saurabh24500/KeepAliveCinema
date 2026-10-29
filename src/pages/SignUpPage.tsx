@@ -13,7 +13,7 @@ import {
 } from '../features/auth/validation'
 
 export function SignUpPage() {
-  const { signUp, session, loading, configured } = useAuth()
+  const { signUp, signInWithGoogle, session, loading, configured } = useAuth()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -173,6 +173,32 @@ export function SignUpPage() {
             disabled={submitting}
           >
             {submitting ? 'Creating account…' : 'Create account'}
+          </Button>
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-cinema-border" />
+            </div>
+            <div className="relative flex justify-center text-xs">
+              <span className="bg-cinema-surface px-2 text-cinema-muted">or</span>
+            </div>
+          </div>
+
+          <Button
+            type="button"
+            size="lg"
+            variant="ghost"
+            className="w-full"
+            disabled={submitting}
+            onClick={async () => {
+              setError(null)
+              setSubmitting(true)
+              const result = await signInWithGoogle()
+              setSubmitting(false)
+              if (result.error) setError(result.error)
+            }}
+          >
+            Continue with Google
           </Button>
 
           <p className="text-xs leading-5 text-cinema-muted/80">

@@ -13,7 +13,7 @@ interface SignInLocationState {
 }
 
 export function SignInPage() {
-  const { signIn, session, loading, configured } = useAuth()
+  const { signIn, signInWithGoogle, session, loading, configured } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const from = (location.state as SignInLocationState | null)?.from?.pathname
@@ -123,6 +123,32 @@ export function SignInPage() {
             disabled={submitting}
           >
             {submitting ? 'Signing in…' : 'Sign in'}
+          </Button>
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-cinema-border" />
+            </div>
+            <div className="relative flex justify-center text-xs">
+              <span className="bg-cinema-surface px-2 text-cinema-muted">or</span>
+            </div>
+          </div>
+
+          <Button
+            type="button"
+            size="lg"
+            variant="ghost"
+            className="w-full"
+            disabled={submitting}
+            onClick={async () => {
+              setError(null)
+              setSubmitting(true)
+              const result = await signInWithGoogle()
+              setSubmitting(false)
+              if (result.error) setError(result.error)
+            }}
+          >
+            Continue with Google
           </Button>
         </form>
       ) : (

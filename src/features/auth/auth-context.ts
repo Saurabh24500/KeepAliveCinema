@@ -16,6 +16,7 @@ export interface AuthContextValue {
   signOut: () => Promise<AuthResult>
   requestPasswordReset: (email: string) => Promise<AuthResult>
   updatePassword: (password: string) => Promise<AuthResult>
+  signInWithGoogle: () => Promise<AuthResult>
 }
 
 export const AuthContext = createContext<AuthContextValue | undefined>(

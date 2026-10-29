@@ -94,6 +94,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return { error: error ? readableAuthError(error.message) : null }
     }
 
+    async function signInWithGoogle(): Promise<AuthResult> {
+      if (!supabase) return { error: notConfiguredError }
+
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: window.location.origin,
+        },
+      })
+
+      return { error: error ? readableAuthError(error.message) : null }
+    }
+
     return {
       session,
       user: session?.user ?? null,
@@ -104,6 +117,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signOut,
       requestPasswordReset,
       updatePassword,
+      signInWithGoogle,
     }
   }, [session, loading])
 
