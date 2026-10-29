@@ -1,10 +1,9 @@
-import { Users } from 'lucide-react'
 import { createBrowserRouter } from 'react-router-dom'
 import { AppShell } from '../components/layout/AppShell'
 import { RequireAuth } from '../features/auth/RequireAuth'
 import { AboutPage } from '../pages/AboutPage'
 import { AccountPage } from '../pages/AccountPage'
-import { ComingSoonPage } from '../pages/ComingSoonPage'
+import { CommunityPage } from '../pages/CommunityPage'
 import { DiscoverPage } from '../pages/DiscoverPage'
 import { ForgotPasswordPage } from '../pages/ForgotPasswordPage'
 import { HomePage } from '../pages/HomePage'
@@ -34,20 +33,7 @@ export const router = createBrowserRouter([
           },
           {
             path: 'community',
-            element: (
-              <ComingSoonPage
-                label="Community"
-                milestone="Milestone 6"
-                title="Community posts are still being built"
-                description="The feed, comments, likes, and spoiler-safe reveals will arrive after core journal features are stable."
-                icon={Users}
-                planned={[
-                  'Text posts with optional media attachments',
-                  'Spoiler flags with a deliberate reveal action',
-                  'Paginated feed, likes, and comments',
-                ]}
-              />
-            ),
+            element: <CommunityPage />,
           },
           { path: 'account', element: <AccountPage /> },
           { path: 'profile', element: <ProfilePage /> },
